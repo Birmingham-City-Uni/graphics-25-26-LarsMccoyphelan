@@ -16,12 +16,21 @@ int main()
 	std::vector<uint8_t> imageBuffer(height*width*nChannels);
 
 	// This for loop sets all the pixels of the image to a cyan colour. 
-	for(int y = 0; y < height; ++y) 
+	for (int y = 0; y < height / 2; ++y) //Task 1: change height to height/2 to only set upper half to the current colour 
 		for (int x = 0; x < width; ++x) {
 			int pixelIdx = x + y * width;
 			imageBuffer[pixelIdx * nChannels + 0] = 0; // Set red pixel values to 0
 			imageBuffer[pixelIdx * nChannels + 1] = 255; // Set green pixel values to 255 (full brightness)
 			imageBuffer[pixelIdx * nChannels + 2] = 255; // Set blue pixel values to 255 (full brightness)
+			imageBuffer[pixelIdx * nChannels + 3] = 255; // Set alpha (transparency) pixel values to 255 (fully opaque)
+		}
+
+	for (int y = height / 2; y < height; ++y) // Set lower half to green
+		for (int x = 0; x < width; ++x) {
+			int pixelIdx = x + y * width;
+			imageBuffer[pixelIdx * nChannels + 0] = 0; // Set red pixel values to 0
+			imageBuffer[pixelIdx * nChannels + 1] = 255; // Set green pixel values to 255 (full brightness)
+			imageBuffer[pixelIdx * nChannels + 2] = 0; // Set blue pixel values to 0
 			imageBuffer[pixelIdx * nChannels + 3] = 255; // Set alpha (transparency) pixel values to 255 (fully opaque)
 		}
 
