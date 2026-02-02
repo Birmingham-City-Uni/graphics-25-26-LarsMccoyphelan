@@ -17,6 +17,9 @@ public:
 	Vector3()
 	{
 		// YOUR CODE HERE
+		x_ = 0;
+		y_ = 0;
+		z_ = 0;
 	}
 
 	// This constructor can be used to set the x, y and z components of a vector when it
@@ -25,12 +28,16 @@ public:
 	Vector3(float x, float y, float z)
 	{
 		// YOUR CODE HERE
+		x_ = x;
+		y_ = y;
+		z_ = z;
 	}
 
 	// Implement this method to add two vectors.
 	Vector3 operator+(const Vector3& other) const
 	{
 		// YOUR CODE HERE
+		return Vector3(x_ + other.x(), y_ + other.y(), z_ + other.z());
 	}
 
 	// Multiply the vector by a scalar.
