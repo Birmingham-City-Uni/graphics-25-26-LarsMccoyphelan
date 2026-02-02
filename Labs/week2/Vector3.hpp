@@ -44,6 +44,7 @@ public:
 	Vector3 operator*(float scalar) const
 	{
 		// YOUR CODE HERE
+		return Vector3(x_ * scalar, y_ * scalar, z_ * scalar);
 	}
 
 	// Get a component of the vector
@@ -56,6 +57,18 @@ public:
 	float& operator[](int i)
 	{
 		// YOUR CODE HERE
+		if (i == 0) {
+			return x_;
+		}
+		if (i == 1) {
+			return y_;
+		}
+		if (i == 2) {
+			return z_;
+		}
+		else {
+			std::cout << "err : not in bounds";
+		}
 	}
 
 	// This is the const version of the [] operator.
@@ -64,6 +77,18 @@ public:
 	float operator[](int i) const
 	{
 		// YOUR CODE HERE
+		if (i == 0) {
+			return x_;
+		}
+		if (i == 1) {
+			return y_;
+		}
+		if (i == 2) {
+			return z_;
+		}
+		else {
+			std::cout << "err : not in bounds";
+		}
 	}
 
 	// I have already written these getters for you.
