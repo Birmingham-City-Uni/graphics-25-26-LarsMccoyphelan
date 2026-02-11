@@ -1,6 +1,18 @@
 #include <iostream>
 #include <lodepng.h>
 
+void setPixel(std::vector<uint8_t>& imageBuffer, int width, int height, int x, int y, int r, int g, int b, int a) {
+	if (x < 0 || x >= width || y < 0 || y >= height) {
+		// Out of bounds
+		return;
+	}
+	const int nChannels = 4;
+	int pixelIdx = x + y * width;
+	imageBuffer[pixelIdx * nChannels + 0] = r; // Red
+	imageBuffer[pixelIdx * nChannels + 1] = g; // Green
+	imageBuffer[pixelIdx * nChannels + 2] = b; // Blue
+	imageBuffer[pixelIdx * nChannels + 3] = a; // Alpha
+}
 
 int main()
 {
